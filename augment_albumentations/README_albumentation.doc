@@ -64,6 +64,13 @@ fit_output参数，如果为 True，将调整图像平面大小和位置以在�
 p参数，应用变换的概率。默认值：0.5。
 	PiecewiseAffine(scale=(0.03, 0.05), nb_rows=4, nb_cols=4, interpolation=1, mask_interpolation=0, cval=0, cval_mask=0, mode='constant', absolute_scale=False, always_apply=False, keypoints_threshold=0.01, p=0.5) (support keypoints)
 #局部区域进行仿射变换
+	ShiftScaleRotate(shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, interpolation=1, border_mode=4, value=None, mask_value=None, shift_limit_x=None, shift_limit_y=None, always_apply=False, p=0.5) (support keypoints)
+#随机应用仿射变换：平移、缩放和旋转
+其中：
+shift_limit 参数，平移操作的长宽限制，默认为 (-0.0625, 0.0625)
+scale_limit 参数，缩放操作的范围限制，默认为 (-0.1, 0.1)
+rotate_limit 参数，旋转操作的范围限制，默认为(-45,45)
+p 参数，应用此变换的概率，默认为0.5
 	ElasticTransform #图像弹性变形
 （2）、裁剪
 	Crop(x_min=0, y_min=0, x_max=1024, y_max=1024, always_apply=False, p=1.0) (support keypoints)
@@ -120,13 +127,6 @@ limit参数：表示旋转的范围限制，范围为（-limit,limit），默认
 p参数：表示应用此变换的概率，默认为0.5
 	SafeRotate(limit=90, interpolation=1, border_mode=4, value=None, mask_value=None, always_apply=False, p=0.5)(support keypoints)
 #从定义的范围中随机旋转一个角度
-	ShiftScaleRotate(shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, interpolation=1, border_mode=4, value=None, mask_value=None, shift_limit_x=None, shift_limit_y=None, always_apply=False, p=0.5) (support keypoints)
-#随机应用仿射变换：平移、缩放和旋转
-其中：
-shift_limit 参数，平移操作的长宽限制，默认为 (-0.0625, 0.0625)
-scale_limit 参数，缩放操作的范围限制，默认为 (-0.1, 0.1)
-rotate_limit 参数，旋转操作的范围限制，默认为(-45,45)
-p 参数，应用此变换的概率，默认为0.5
 （5）、缩放
 	LongestMaxSize(max_size=1024, interpolation=1, always_apply=False, p=1) (support keypoints)
 #重新缩放图像，使最大边等于 max_size，保持初始图像的纵横比。
