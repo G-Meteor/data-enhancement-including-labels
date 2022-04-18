@@ -1,5 +1,7 @@
 # data-enhancement-including-labels
-这是一个对图像数据与关键点标注信息 Ground Truth 同时进行增强的工具库，包括平移、翻转、旋转、缩放、仿射等数据增强操作；
+这是一个对图像数据与关键点标注信息 Ground Truth 同时进行增强的工具库
+
+包括平移、翻转、旋转、缩放、仿射等数据增强操作
 
 Handwriting with opencv2
 
